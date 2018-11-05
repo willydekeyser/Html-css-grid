@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></link>
+	
+	<link rel="stylesheet" href="index.css"/>
+</head>
+<body onload="myFunction()">
+<div class="container-fluid">
+	<nav class="fixed-top  mynavbar">
+	  <p>Navbar top</p>
+	</nav>
+</div>
+
+	<div class="hoofd">
+		<div class="row">
+		<div class="col-12 bg-primary deel1" id="deel1">
+		<p>Start</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>End</p>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-12 bg-danger deel_tussen" id="tussen">
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-12 bg-secondary deel2" id="deel2">
+		<p>Start</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>Tekst</p>
+		<p>End</p>
+		</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+	<footer class="fixed-bottom mynavbar">
+	  <p>Footer bottom</p>
+	</footer>
+</div>
+<script>
+function myFunction() {
+
+let mouse_pos = 0;
+let deel1 = document.getElementById('deel1');
+let deel2 = document.getElementById('deel2');
+	let tussen = document.getElementById('tussen');
+		tussen.addEventListener('mouseover', function() {
+			tussen.style.cursor = 'row-resize';
+		});
+		tussen.addEventListener('mousedown', function(event) {
+			mouse_pos = event.clientY;
+			console.log('Mouse pos: ' + mouse_pos);
+			document.addEventListener('mousemove', move, true);
+		});
+		document.addEventListener('mouseup', function(event) {
+			document.removeEventListener('mousemove', move, true);
+		});
+		
+		function move(event) {
+			let pos = mouse_pos - event.clientY
+			console.log('Mouse: ' + pos);
+			if(pos > 50) {
+				deel1.style.height = '20vh';
+				deel2.style.height = '69.5vh';
+			};
+			if(pos < -50) {
+				deel1.style.height = '69.5vh';
+				deel2.style.height = '20vh';
+			};
+		};		
+	
+};
+</script>
+</body>
+</html>
